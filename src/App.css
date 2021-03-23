@@ -1,38 +1,145 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  outline: none;
+  border-radius: 3rem;
+  color:var(--text-color);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  font-size: 10px;
+  --ligth-blue:#f0f8ff;
+  --light-pink: #fff7f0;
+  --dark-pink: #fcdcc0;
+  --ligth-gray:#EFEFEF;
+  --text-color:rgba(0,0,0,0.43);
+  --ligth-green:#acccba  ;
+  --box-shadow:3px 5px 15px 0px rgba(0,0,0,0.43);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
+  width: 60vw;
+  margin: 50px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+html{
+  background-color: var(--ligth-blue);
 }
 
-.App-link {
-  color: #61dafb;
+.flexRow{
+  display: flex;
+}
+/*---------------------- Create Task Component ----------------*/
+
+.createTask{
+  display: flex;
+  justify-content: space-between;
+  width:40rem;
+  background-color:var(--light-pink);
+  box-shadow: var(--box-shadow);
+  margin:2rem;
+}
+.newTaskInput{
+  padding: 1rem;
+  height: 4rem;
+  width: 35rem;
+  border:none;
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+.newTaskBtn{
+  border-radius: 5rem;
+  height: 5rem;
+  width:5rem;
+  border:none;
+  font-size: 3rem;
+  background-color: var(--ligth-gray);
+  color:var(--text-color);
+  border:2px solid white;
+}
+.newTaskBtn:hover{
+  font-size: 3.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/*  -------------------------------- colapsed task ------------------------*/
+
+.colapsedTask{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  width:40rem;
+  height:4rem;
+  background-color: white;
+  border-radius: 5rem;
+  box-shadow: var(--box-shadow);
+  margin:0.2rem 0;
+  padding:1rem;
+  font-size: 1.5rem;
+}
+
+.colapsedTask:hover{
+border:3px solid var(--dark-pink);
+}
+
+.taskList{
+  margin:2rem;
+}
+
+.todoList-tasks{
+  margin:1rem 0;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.completedList-tasks{
+  margin:1rem 0;
+}
+.fas{
+  font-size: 2rem;
+}
+
+.action{
+  font-size: 2rem;
+  color: var(--ligth-gray);
+  display:block;
+}
+.action:hover{
+  color:var(--text-color);
+  cursor: pointer;
+}
+
+/*  -------------------------------- opened task -----------------------------*/
+
+.openedTask{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  width:40rem;
+  height:15rem;
+  background-color: white;
+  border-radius: 5rem;
+  box-shadow: var(--box-shadow);
+  margin:0.2rem 0;
+  padding:2rem;
+  font-size: 1.5rem;
+}
+
+.completed .fa-check-circle {
+  color:var(--ligth-green);
+}
+.taskTop{
+  display: flex;
+  justify-content: space-between;
+}
+.taskAction{
+  display: flex;
+  justify-content:space-between;
+}
+
+.fa-save{
+  margin: 0 10px;
 }
