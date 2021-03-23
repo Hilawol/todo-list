@@ -34,6 +34,9 @@ class App extends Component {
         break;
       case "delete":
         this.onDeleteTask(id);
+        break;
+      default:
+
     }
   }
 
