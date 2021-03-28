@@ -119,7 +119,7 @@ border:3px solid var(--dark-pink);
   flex-direction: column;
   justify-content:space-between;
   width:40rem;
-  height:15rem;
+  height:30rem;
   background-color: white;
   border-radius: 5rem;
   box-shadow: var(--box-shadow);
@@ -142,4 +142,18 @@ border:3px solid var(--dark-pink);
 
 .fa-save{
   margin: 0 10px;
+}
+
+
+.taskTitleInput{
+  padding: 0 1rem;
+  text-align: center;
+  border:none;
+  border-radius: 0;
+  border-bottom:1px solid black;
+}
+
+textarea { 
+  border-radius: 0;
+  text-align: center;
 }

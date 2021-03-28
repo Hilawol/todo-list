@@ -23,21 +23,38 @@ class App extends Component {
     console.log("did update:", this.state);
   }
 
-  onTaskAction = (action, id) => {
-    console.log(action, id);
+  onTaskAction = (action, data) => {
+    console.log(action, data);
     switch (action) {
       case "complete":
-        this.onCompleteTask(id);
+        this.onCompleteTask(data);
         break;
       case "open":
-        this.onOpenTask(id);
+        this.onOpenTask(data);
         break;
       case "delete":
-        this.onDeleteTask(id);
+        this.onDeleteTask(data);
+        break;
+      case "save":
+        this.onSave(data);
         break;
       default:
 
     }
+  }
+
+  onSave = (data) => {
+    console.log(data);
+    const tasks = this.state.tasks.map(t => {
+      if (t.id === data.id) {
+        console.log(t)
+        t.title = data.edit.title;
+        t.text = data.edit.text;
+      }
+      console.log(t)
+      return t;
+    })
+    this.setState({ tasks })
   }
 
   onDeleteTask = (id) => {
