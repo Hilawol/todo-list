@@ -15,7 +15,24 @@ class App extends Component {
     }
   }
 
+  updateLocalStorage = (tasks) => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+
+  updateState = (tasks) => {
+    this.setState({ tasks: [...tasks] });
+    this.updateLocalStorage(tasks);
+  }
   componentDidMount = () => {
+    const tasks = localStorage.getItem("tasks");
+    if (tasks) {
+      console.log("found local storage");
+      this.setState({ tasks: JSON.parse(tasks) });
+    }
+    else {
+      console.log("did not found local storage");
+      localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
+    }
     console.log("did mount:", this.state);
   }
 
@@ -54,12 +71,16 @@ class App extends Component {
       console.log(t)
       return t;
     })
-    this.setState({ tasks })
+    this.updateState(tasks);
+    // this.setState({ tasks })
+    // this.updateLocalStorage();
   }
 
   onDeleteTask = (id) => {
     const tasks = this.state.tasks.filter(t => t.id !== id);
-    this.setState({ tasks });
+    this.updateState(tasks);
+    // this.setState({ tasks });
+    // this.updateLocalStorage();
   }
 
   onOpenTask = (id) => {
@@ -69,7 +90,8 @@ class App extends Component {
       }
       return t;
     });
-    this.setState({ tasks: tasks });
+    // this.setState({ tasks: tasks });
+    this.updateState(tasks);
   }
 
   onCompleteTask = (id) => {
@@ -80,8 +102,8 @@ class App extends Component {
       }
       return t;
     });
-    this.setState({ tasks: tasks });
-    console.log(this.state);
+    // this.setState({ tasks: tasks });
+    this.updateState(tasks);
   }
 
   onAdd = (taskTitle) => {
@@ -96,7 +118,8 @@ class App extends Component {
     App.id += 1;
     const t = this.state.tasks;
     t.push(task);
-    this.setState({ tasks: t });
+    // this.setState({ tasks: t });
+    this.updateState(t);
   }
 
   getTodoList = () => {
